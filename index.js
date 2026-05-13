@@ -9,7 +9,7 @@ app.use(express.json());
 // GET /  → estado del servidor
 app.get('/', (req, res) => {
   res.json({
-    mensaje: 'API funcionando correctamente',
+    mensaje: 'API actualizada automaticamente con CI/CD',
     version: '1.0.0',
     fecha: new Date().toISOString()
   });
