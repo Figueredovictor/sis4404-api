@@ -4,18 +4,17 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// ── Rutas de la API ──────────────────────────────────────────
 
 // GET /  → estado del servidor
 app.get('/', (req, res) => {
   res.json({
-    mensaje: 'API actualizada automaticamente con CI/CD',
+    mensaje: 'API actualizada automaticamente con CI/CD v2',
     version: '1.0.0',
     fecha: new Date().toISOString()
-  });
+  });c
 });
 
-// GET /saludo/:nombre  → saludo personalizado
+
 app.get('/saludo/:nombre', (req, res) => {
   const { nombre } = req.params;
   res.json({
@@ -23,7 +22,7 @@ app.get('/saludo/:nombre', (req, res) => {
   });
 });
 
-// GET /productos  → lista de productos de ejemplo
+
 app.get('/productos', (req, res) => {
   const productos = [
     { id: 1, nombre: 'Laptop', precio: 15000 },
@@ -33,7 +32,7 @@ app.get('/productos', (req, res) => {
   res.json({ total: productos.length, productos });
 });
 
-// POST /productos  → agregar un producto
+
 app.post('/productos', (req, res) => {
   const { nombre, precio } = req.body;
   if (!nombre || !precio) {
@@ -45,7 +44,6 @@ app.post('/productos', (req, res) => {
   });
 });
 
-// ── Iniciar servidor ─────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
